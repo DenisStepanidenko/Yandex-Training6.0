@@ -62,126 +62,15 @@ public class ProblemB {
         int NSecond = Math.max(C, D) + 1;
 
         int min = Math.min(Math.min(ansA, ansB), Math.min(ansFirst, ansSecond));
-        if(min == ansA){
+        if (min == ansA) {
             System.out.println(MA + " " + NA);
-        }
-        else if(min == ansB){
+        } else if (min == ansB) {
             System.out.println(MB + " " + NB);
-        }
-        else if(min == ansFirst){
+        } else if (min == ansFirst) {
             System.out.println(MFirst + " " + NFirst);
-        }
-        else{
+        } else {
             System.out.println(MSecond + " " + NSecond);
         }
-//        // Пусть сначала мы вытащили майку цвета A
-//
-//        boolean flagA = true;
-//        int ansA = 0;
-//        int MA = 0;
-//        int NA = 0;
-//        if (A != 0) {
-//            MA = B + 1;
-//            if (C != 0) {
-//                NA = D + 1;
-//                ansA = MA + NA;
-//            } else {
-//                flagA = false;
-//            }
-//        } else {
-//            flagA = false;
-//        }
-//
-//        // Пусть сначала мы вытащили майку цвета B
-//        int ansB = 0;
-//        int MB = 0;
-//        int NB = 0;
-//        boolean flagB = true;
-//        if (B != 0) {
-//            MB = A + 1;
-//            if (D != 0) {
-//                NB = C + 1;
-//                ansB = MB + NB;
-//            } else {
-//                flagB = false;
-//            }
-//        } else {
-//            flagB = false;
-//        }
-//
-//        // третий вариант
-//        // когда мы берём A + B пар носков
-//        int ansC = 0;
-//        int MC = 0;
-//        int NC = 0;
-//        if (A == 0) {
-//            ansC = B + C + 1;
-//            MC = B;
-//            NC = C + 1;
-//        } else if (B == 0) {
-//            ansC = A + D + 1;
-//            MC = A;
-//            NC = D + 1;
-//        } else {
-//
-//            ansC = Math.min(A, B) + 2;
-//            MC = Math.min(A, B) + 1;
-//            NC = 1;
-//        }
-//
-//        // четвёртый вариант
-//        // когда мы берём C + D пар носков
-//        int ansD = 0;
-//        int MD = 0;
-//        int ND = 0;
-//        if (C == 0) {
-//            ansD = D + A + 1;
-//            MD = A + 1;
-//            ND = D;
-//        } else if (D == 0) {
-//            ansD = C + B + 1;
-//            MD = B + 1;
-//            ND = C;
-//        } else {
-//            ansD = Math.min(C, D) + 2;
-//            MD = 1;
-//            ND = Math.min(C, D) + 1;
-//        }
-//
-//        if (flagA && flagB) {
-//            int min = Math.min(Math.min(ansA, ansD), Math.min(ansB, ansC));
-//
-//            if (min == ansA) {
-//                System.out.println(MA + " " + NA);
-//            } else if (min == ansB) {
-//                System.out.println(MB + " " + NB);
-//            } else if (min == ansC) {
-//                System.out.println(MC + " " + NC);
-//            } else {
-//                System.out.println(MD + " " + ND);
-//            }
-//        } else if (flagA) {
-//            int min = Math.min(Math.min(ansA, ansD), ansC);
-//            if (min == ansA) {
-//                System.out.println(MA + " " + NA);
-//            } else if (min == ansC) {
-//                System.out.println(MC + " " + NC);
-//            } else {
-//                System.out.println(MD + " " + ND);
-//            }
-//
-//        } else {
-//            int min = Math.min(ansD, Math.min(ansB, ansC));
-//            if (min == ansB) {
-//                System.out.println(MB + " " + NB);
-//            } else if (min == ansC) {
-//                System.out.println(MC + " " + NC);
-//            } else {
-//                System.out.println(MD + " " + ND);
-//            }
-//
-//        }
-
 
     }
 
