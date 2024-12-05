@@ -1,15 +1,15 @@
-package lesson2.problemD;
+package lesson2.problemB;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class ProblemD {
+public class Solution {
     static Reader input = new Reader();
 
     public static void main(String[] args) {
         int n = input.nextInt();
-        int k = input.nextInt();
+        long k = input.nextLong();
+
         int[] arr = new int[n];
 
         for (int i = 0; i < n; i++) {
@@ -17,35 +17,48 @@ public class ProblemD {
             arr[i] = x;
         }
 
-        Arrays.sort(arr);
+        int[] prefixSum = makePrefixSum(arr);
 
         if (n == 1) {
-            System.out.println(1);
+            if (arr[0] == k) {
+                System.out.println(1);
+            } else {
+                System.out.println(0);
+            }
             System.exit(0);
         }
 
-        int left = 0;
-        int right = 1;
-        int ans = 0;
+        int right = 0;
+        int answer = 0;
 
-
-        while (right < n) {
-
-            while (right < n && ((arr[right] - arr[left]) <= k)) {
+        for (int i = 0; i < prefixSum.length; i++) {
+            while (right < prefixSum.length && (prefixSum[right] - prefixSum[i] < k)) {
                 right++;
             }
 
-            ans = Math.max(ans, right - left);
-            if (right == n) {
+            if (right == prefixSum.length) {
                 break;
             }
-            left++;
 
+            if (prefixSum[right] - prefixSum[i] == k) {
+                answer++;
+            }
         }
 
-        System.out.println(ans);
-
+        System.out.println(answer);
     }
+
+    public static int[] makePrefixSum(int[] arr) {
+        int[] prefixSum = new int[arr.length + 1];
+        prefixSum[0] = 0;
+
+        for (int i = 1; i < arr.length + 1; i++) {
+            prefixSum[i] = prefixSum[i - 1] + arr[i - 1];
+        }
+
+        return prefixSum;
+    }
+
 
     static class Reader extends PrintWriter {
         private BufferedReader r;

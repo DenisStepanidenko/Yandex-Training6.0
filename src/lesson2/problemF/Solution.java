@@ -1,38 +1,49 @@
-package lesson2.problemA;
+package lesson2.problemF;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ProblemA {
+public class Solution {
     static Reader input = new Reader();
 
     public static void main(String[] args) {
+        long module = 1_000_000_007;
+
         int n = input.nextInt();
 
-        int[] arr = new int[n];
+        long[] arr = new long[n];
+        long allSum = 0;
 
         for (int i = 0; i < n; i++) {
-            int x = input.nextInt();
+            long x = input.nextLong();
+            allSum = (allSum + x) % module;
             arr[i] = x;
         }
 
-        int[] prefixSum = makePrefixSum(arr);
-
-        for (int i = 1; i < prefixSum.length; i++) {
-            System.out.print(prefixSum[i] + " ");
-        }
-
-    }
-
-    public static int[] makePrefixSum(int[] arr) {
-        int[] prefixSum = new int[arr.length + 1];
+        long[] prefixSum = new long[n + 1];
         prefixSum[0] = 0;
 
-        for (int i = 1; i < arr.length + 1; i++) {
-            prefixSum[i] = prefixSum[i - 1] + arr[i - 1];
+        // префиксные суммы
+        for (int i = 1; i < n + 1; i++) {
+            prefixSum[i] = (prefixSum[i - 1] + arr[i - 1]) % module;
         }
 
-        return prefixSum;
+        // суффиксные суммы
+        long[] suffixSum = new long[n + 1];
+        suffixSum[n] = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            suffixSum[i] = (suffixSum[i + 1] + arr[i]) % module;
+        }
+
+        long answer = 0;
+        for (int i = 1; i < arr.length - 1; i++) {
+            long addToAns = (((arr[i] * prefixSum[i]) % module) * suffixSum[i + 1]) % module;
+            answer = (answer + addToAns) % module;
+        }
+
+        System.out.println(answer);
+
+
     }
 
 

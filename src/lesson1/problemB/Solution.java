@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 
-public class ProblemB {
+public class Solution {
     static Reader input = new Reader();
 
     public static void main(String[] args) {

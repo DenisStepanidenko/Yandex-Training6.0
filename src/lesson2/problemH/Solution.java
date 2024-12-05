@@ -1,41 +1,54 @@
-package lesson2.problemC;
+package lesson2.problemH;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ProblemC {
+public class Solution {
     static Reader input = new Reader();
 
     public static void main(String[] args) {
         int n = input.nextInt();
-        int r = input.nextInt();
-        int[] arr = new int[n];
+
+        long[] people = new long[n];
 
         for (int i = 0; i < n; i++) {
-            int x = input.nextInt();
-            arr[i] = x;
+            long x = input.nextLong();
+            people[i] = x;
         }
 
+        long[] prefixSumFirst = new long[n];
+        prefixSumFirst[0] = 0;
 
-        int left = 0;
-        int right = 1;
-
-        long answer = 0;
-
-        while (right < arr.length) {
-            while (right < arr.length && arr[right] - arr[left] <= r) {
-                right++;
-            }
-
-            if (right == arr.length) {
-                break;
-            }
-
-            answer += (arr.length - right);
-            left++;
+        for (int i = 1; i < n; i++) {
+            prefixSumFirst[i] = prefixSumFirst[i - 1] + people[i - 1];
         }
 
-        System.out.println(answer);
+        long[] prefixSumSecond = new long[n];
+        prefixSumSecond[0] = 0;
+        for (int i = 1; i < n; i++) {
+            prefixSumSecond[i] = prefixSumFirst[i] + prefixSumSecond[i - 1];
+        }
+
+        long[] suffixSumFirst = new long[n];
+        suffixSumFirst[n - 1] = 0;
+
+        for (int i = n - 2; i >= 0; i--) {
+            suffixSumFirst[i] = suffixSumFirst[i + 1] + people[i + 1];
+        }
+
+        long[] suffixSumSecond = new long[n];
+        suffixSumSecond[n - 1] = 0;
+        for (int i = n - 2; i >= 0; i--) {
+            suffixSumSecond[i] = suffixSumFirst[i] + suffixSumSecond[i + 1];
+        }
+
+        long min = Long.MAX_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            min = Math.min(min, prefixSumSecond[i] + suffixSumSecond[i]);
+        }
+        System.out.println(min);
+
     }
 
     static class Reader extends PrintWriter {

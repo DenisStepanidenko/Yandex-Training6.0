@@ -1,14 +1,15 @@
-package lesson2.problemE;
+package lesson2.problemD;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class ProblemE {
+public class Solution {
     static Reader input = new Reader();
 
     public static void main(String[] args) {
         int n = input.nextInt();
+        int k = input.nextInt();
         int[] arr = new int[n];
 
         for (int i = 0; i < n; i++) {
@@ -19,52 +20,30 @@ public class ProblemE {
         Arrays.sort(arr);
 
         if (n == 1) {
-            System.out.println(arr[0]);
+            System.out.println(1);
             System.exit(0);
         }
 
-        int k = 0;
-        int chet = 0;
-        int count = 0;
-        int index;
+        int left = 0;
+        int right = 1;
+        int ans = 0;
 
-        if ((arr.length % 2) == 0) {
-            if (arr[arr.length / 2] == arr[(arr.length / 2) - 1]) {
-                index = (arr.length / 2) - 1;
-            } else if (arr[arr.length / 2] > arr[(arr.length / 2) - 1]) {
-                index = (arr.length / 2) - 1;
-            } else {
-                index = arr.length / 2;
+
+        while (right < n) {
+
+            while (right < n && ((arr[right] - arr[left]) <= k)) {
+                right++;
             }
-        } else {
-            chet = 1;
-            index = arr.length / 2;
-        }
 
-        while (count < n) {
-            System.out.println(arr[index]);
-            count++;
-            k++;
-            if (count == n) {
+            ans = Math.max(ans, right - left);
+            if (right == n) {
                 break;
             }
+            left++;
 
-            if (chet == 0) {
-                index += k;
-                chet = 1;
-
-            } else {
-                if (arr[index - k] == arr[index + 1]) {
-                    index = index - k;
-                } else if (arr[index - k] > arr[index + 1]) {
-                    index = index + 1;
-                } else {
-                    index = index - k;
-                }
-
-                chet = 0;
-            }
         }
+
+        System.out.println(ans);
 
     }
 
@@ -124,5 +103,4 @@ public class ProblemE {
         }
     }
 }
-
 
