@@ -9,11 +9,11 @@
 * [***E. Наибольшее произведение двух чисел (составление тестов)***]() ❌
 
 # ***Лекция 2: Префиксные суммы и два указателя***🎃
-* [***A. Префиксные суммы***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemA/ProblemA.java) ✅
-* [***B. Сумма номеров***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemB/ProblemB.java) ✅
-* [***C. Город Че***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemC/ProblemC.java) ✅
-* [***D. Лучший отдых***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemD/ProblemD.java) ✅
-* [***E. Удаление медиан***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemE/ProblemE.java) ✅
+* [***A. Префиксные суммы***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemA/Solution.java) ✅
+* [***B. Сумма номеров***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemB/Solution.java) ✅
+* [***C. Город Че***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemC/Solution.java) ✅
+* [***D. Лучший отдых***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemD/Solution.java) ✅
+* [***E. Удаление медиан***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemE/Solution.java) ✅
 * [***F. Сумма тройных произведений***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemF/Solution.java) ✅
 * [***G. Цензурное произведение***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemG/Solution.java) ✅
 * [***H. Переезд в опенспейс***](https://github.com/DenisStepanidenko/Yandex-Training6.0/blob/master/src/lesson2/problemH/Solution.java) ✅
